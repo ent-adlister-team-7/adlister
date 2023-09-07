@@ -5,6 +5,7 @@ public class Ad {
     private long userId;
     private String title;
     private String description;
+    private String link;
 
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
@@ -17,6 +18,13 @@ public class Ad {
         this.userId = userId;
         this.title = title;
         this.description = description;
+    }
+
+    public Ad(long userId, String title, String description, String link) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.link = link;
     }
 
     public long getId() {
@@ -49,5 +57,14 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
