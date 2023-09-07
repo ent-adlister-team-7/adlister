@@ -4,6 +4,7 @@ import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
+import com.codeup.adlister.util.Config;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
