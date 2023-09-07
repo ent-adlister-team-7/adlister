@@ -35,6 +35,15 @@ public class User {
         return id;
     }
 
+    public User(long id, String firstName, String lastName, String username, String email, String password) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

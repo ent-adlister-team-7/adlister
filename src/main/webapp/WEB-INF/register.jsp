@@ -19,6 +19,14 @@
                 <input id="email" name="email" class="form-control" type="text">
             </div>
             <div class="form-group">
+                <label for="first_name">Enter your first name!</label>
+                <input id="first_name" name="first_name" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Enter your last name!</label>
+                <input id="last_name" name="last_name" class="form-control" type="text">
+            </div>
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
