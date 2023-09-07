@@ -1,4 +1,7 @@
+drop database adlister_db;
+create database adlister_db;
 USE adlister_db;
+
 
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
