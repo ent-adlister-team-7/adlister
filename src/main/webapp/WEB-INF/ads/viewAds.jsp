@@ -6,14 +6,14 @@
 </head>
 <body>
 <c:forEach var="ads" items="${ads}">
-    <c:forEach var="users" items="${users}">
+<div class="${ads.id}">
     <ul>
-        <ul> Username: ${users.username}</ul>
-    </c:forEach>
         <li>project title: ${ads.title}</li>
         <li>description: ${ads.description}</li>
         <li>${ads.link}</li>
     </ul>
+</div>
 </c:forEach>
+<jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>
