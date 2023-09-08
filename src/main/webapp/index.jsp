@@ -11,6 +11,7 @@
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
     </div>
+    <jsp:include page="/WEB-INF/partials/script.jsp" />
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>

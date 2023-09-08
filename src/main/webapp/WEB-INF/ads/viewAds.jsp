@@ -6,7 +6,7 @@
 </head>
 <body>
 <c:forEach var="ads" items="${ads}">
-<div class="${ads.id}">
+<div class=" testing ${ads.id}">
     <ul>
         <li>project title: ${ads.title}</li>
         <li>description: ${ads.description}</li>
@@ -15,5 +15,7 @@
 </div>
 </c:forEach>
 <jsp:include page="/WEB-INF/partials/footer.jsp" />
+<jsp:include page="/WEB-INF/partials/script.jsp" />
+<script src=""></script>
 </body>
 </html>
