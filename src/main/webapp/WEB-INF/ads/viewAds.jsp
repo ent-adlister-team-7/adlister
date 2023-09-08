@@ -19,7 +19,7 @@
     </c:forEach>
         <li>project title: ${ads.title}</li>
         <li>description: ${ads.description}</li>
-<%--        <li>${ads.link}</li>--%>
+        <li>${ads.link}</li>
     </ul>
 </c:forEach>
 </body>
