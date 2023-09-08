@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1>DisplayAd</h1>
+<%--<c: var="ad" item="ad.title"></c:>--%>
 
 
 </body>
