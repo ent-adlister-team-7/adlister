@@ -39,14 +39,16 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        // create and save a new user
-        User user = new User(username, email,firstname, lastname, password);
 
         // hash the password
+        System.out.println("password in registerservlet is: " +password);
+        String hash = BCrypt.hashpw(password, BCrypt.gensalt());
+        System.out.println("username after hash in registerservlet is: " +username);
+        System.out.println("password after hash in registerservlet is: " +hash);
 
-        String hash = Password.hash(user.getPassword());
-
-        user.setPassword(hash);
+        // create and save a new user
+        User user = new User(firstname, lastname,username, email, hash);
+//String firstName, String lastName, String username, String email, String password
 
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");

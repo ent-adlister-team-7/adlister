@@ -21,18 +21,18 @@ public class LoginServlet extends HttpServlet {
         }
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
-        String hash = user.getPassword();
         if (user == null) {
             response.sendRedirect("/login");
             return;
         }
-
-        boolean validAttempt = BCrypt.checkpw(password, hash);
+        System.out.println("Username: " + user.getUsername());
+        System.out.println("password entered: " +password);
+        System.out.println("password stored: " +user.getPassword());
+        boolean validAttempt = BCrypt.checkpw(password, user.getPassword());
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
@@ -41,4 +41,5 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/login");
         }
     }
+
 }

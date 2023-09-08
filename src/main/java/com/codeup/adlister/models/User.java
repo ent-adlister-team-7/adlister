@@ -31,10 +31,6 @@ public class User {
         this.password = password;
     }
 
-    public long getId() {
-        return id;
-    }
-
     public User(long id, String firstName, String lastName, String username, String email, String password) {
         this.id = id;
         this.firstName = firstName;
@@ -42,6 +38,10 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setId(long id) {
@@ -65,7 +65,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
