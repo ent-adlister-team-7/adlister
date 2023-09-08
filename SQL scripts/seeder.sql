@@ -8,10 +8,10 @@ VALUES ('jose',
         'password'
         );
 INSERT INTO users (firstname, lastname, username, email, password)
-VALUES ('Johnny',
-        'Manziel',
-        'JohnnyFootball',
-        'real@email.com',
+VALUES ('Luis',
+        'Esquivel',
+        'GHØ$TFA¢£_210',
+        'that.developer@email.com',
         'password'
        );
 INSERT INTO ads (user_id, title, link, description)
