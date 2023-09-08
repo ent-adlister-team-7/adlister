@@ -5,14 +5,12 @@
     <title>AD Details</title>
 </head>
 <body>
-<c:forEach var="ads" items="${ads}">
-    <c:forEach var="users" items="${users}">
+<c:forEach var="ad" items="${ads}">
     <ul>
-        <ul> Username: ${users.username}</ul>
-    </c:forEach>
-        <li>project title: ${ads.title}</li>
-        <li>description: ${ads.description}</li>
-        <li>${ads.link}</li>
+        <ul> Username: ${ad.user.username}</ul>
+        <li>project title: ${ad.title}</li>
+        <li>description: ${ad.description}</li>
+        <li>ad link${ad.link}</li>
     </ul>
 </c:forEach>
 </body>
