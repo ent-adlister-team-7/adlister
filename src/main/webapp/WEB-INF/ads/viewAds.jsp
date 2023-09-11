@@ -9,8 +9,8 @@
     <ul>
         <ul> Username: ${ad.user.username}</ul>
         <li>project title: ${ad.title}</li>
-        <li>description: ${ad.description}</li>
-        <li>ad link${ad.link}</li>
+        <li>link: ${ad.link}</li>
+        <li>ad description: ${ad.description}</li>
     </ul>
 </c:forEach>
 </body>

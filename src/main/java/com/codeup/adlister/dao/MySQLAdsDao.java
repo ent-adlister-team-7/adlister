@@ -63,16 +63,23 @@ public class MySQLAdsDao implements Ads {
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
+        long adid = rs.getLong("id");
         long id = rs.getLong("user_id");
-        System.out.println(id);
+        String title = rs.getString("title");
+        String link = rs.getString("link");
+        String des = rs.getString("description");
         User user = DaoFactory.getUsersDao().findById(id);
+        System.out.println("adid " + adid);
+        System.out.println("id " + id);
+        System.out.println("title" + title);
+        System.out.println("link" +link);
+        System.out.println("description" +des);
         return new Ad(
             rs.getLong("id"),
-//            rs.getLong("user_id"),
                 user,
             rs.getString("title"),
-            rs.getString("link"),
-            rs.getString("description")
+            rs.getString("description"),
+            rs.getString("link")
         );
     }
 
