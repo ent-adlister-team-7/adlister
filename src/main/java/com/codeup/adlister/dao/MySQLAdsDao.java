@@ -4,14 +4,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
-<<<<<<< HEAD
-=======
-
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
->>>>>>> main
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +63,7 @@ public class MySQLAdsDao implements Ads {
                         rs.getString("link")
                 );
             } else {
-// Handle the case where no ad with the given ID was found
+                // Handle the case where no ad with the given ID was found
                 return null;
             }
         } catch (SQLException e) {
@@ -156,16 +148,5 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("I'm sorry finding the add");
         }
     }
-
-
-//    public static boolean checkIfUserExist(String username){
-//        boolean usernameExist = false;
-//        try{
-//
-//
-//        } catch (Exception e){
-//            throw new RuntimeException("Could not complete");
-//        }
-//    }
 
 }
