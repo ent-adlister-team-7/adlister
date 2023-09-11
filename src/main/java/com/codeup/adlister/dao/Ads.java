@@ -10,12 +10,10 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
-
     List<Ad> findByTitle(String title);
 
     void delete(Ad ad);
     Ad getAdByID(Long id);
-
 }
 
 
