@@ -27,6 +27,8 @@
     </c:choose>
     </c:if>
 
+
+
 </div>
 <jsp:include page="/WEB-INF/partials/script.jsp" />
 <jsp:include page="/WEB-INF/partials/footer.jsp" />
