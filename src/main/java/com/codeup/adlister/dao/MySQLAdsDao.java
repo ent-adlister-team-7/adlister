@@ -5,10 +5,6 @@ import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,10 +44,10 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
-    public Ad getAdByID(Long id) {
+    @Override
+    public Ad getAdByUserID(Long id) {
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE ID=?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id=?");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
@@ -75,7 +71,6 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving ad by ID: " + id, e);
         }
     }
-
 
 
 
@@ -108,6 +103,16 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting ad from the database.", e);
         }
+    }
+
+    @Override
+    public Ad getAdByID(Long id) {
+        return null;
+    }
+
+    @Override
+    public Ad getAdByUserId(Long id) {
+        return null;
     }
 
 
@@ -143,7 +148,7 @@ public class MySQLAdsDao implements Ads {
 
  @Override
     public List<Ad> findByTitle(String title){
-        String query = "SELECT * FROM ads WHERE title LIKE '%', ?, '%'";
+        String query = "SELECT * FROM ads WHERE title LIKE '%' , ?, '%'";
         try{
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, title);
