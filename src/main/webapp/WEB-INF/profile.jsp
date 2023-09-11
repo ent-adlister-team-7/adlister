@@ -8,15 +8,16 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
+<%--<c: var="user" items="${user}">--%>
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <ul>
-            <li> </li>
-            <li></li>
-            <li></li>
+            <li><h1>${sessionScope.user.username}</h1></li>
+            <li><h2>${sessionScope.user.firstName}</h2> <h2>${sessionScope.user.lastName}</h2></li>
+            <li>${sessionScope.user.email}</li>
         </ul>
     </div>
+<%--</c:>--%>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>
