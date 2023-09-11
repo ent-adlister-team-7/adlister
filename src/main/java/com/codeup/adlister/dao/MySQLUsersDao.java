@@ -65,12 +65,6 @@ public class MySQLUsersDao implements Users {
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password, firstName, lastName) VALUES (?, ?, ?, ?, ?)";
-        System.out.println("username in usersDAO is: " + user.getUsername());
-        System.out.println("email in usersDAO is: " + user.getEmail());
-        System.out.println("password in usersDAO is: " + user.getPassword());
-        System.out.println("first name in usersDAO is: " + user.getFirstName());
-        System.out.println("last name in usersDAO is: " + user.getLastName());
-
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
