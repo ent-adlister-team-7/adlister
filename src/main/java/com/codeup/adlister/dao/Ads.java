@@ -14,6 +14,14 @@ public interface Ads {
 
     void delete(Ad ad);
     Ad getAdByID(Long id);
+
+    Long editAd(Long id, String title,String link, String desciption);
+
+
+
+    void delete(Ad ad);
+    Ad getAdByID(Long id);
+
 }
 
 

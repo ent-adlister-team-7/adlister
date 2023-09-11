@@ -5,6 +5,10 @@ import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
+
+
+
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -76,7 +80,25 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Long editAd(Long id, String title, String link, String description) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE ads SET title = ?, link = ?, description = ? WHERE id = ?");
+            stmt.setString(1, title);
+            stmt.setString(2, link);
+            stmt.setString(3, description);
+            stmt.setLong(4, id);
+            int rowsUpdated = stmt.executeUpdate();
 
+            if (rowsUpdated == 0) {
+                throw new RuntimeException("Failed to update ad with ID: " + id);
+            }
+            return id;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad by ID: " + id, e);
+        }
+
+    }
 
 
     @Override

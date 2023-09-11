@@ -1,5 +1,7 @@
 package com.codeup.adlister.models;
 
+import com.codeup.adlister.dao.DaoFactory;
+
 import java.sql.*;
 
 public class Ad {
@@ -11,15 +13,15 @@ public class Ad {
 
 
     public Ad(Long id, User user, String title, String description, String link) {
-        this.id = id ;
-        this.user =user;
+        this.id = id;
+        this.user = user;
         this.title = title;
         this.description = description;
         this.link = link;
     }
 
     public Ad(User user, String title, String description, String link) {
-        this.user =user;
+        this.user = user;
         this.title = title;
         this.description = description;
         this.link = link;
@@ -47,7 +49,7 @@ public class Ad {
         } catch (SQLException e) {
             throw new RuntimeException("Error calling user (user may not exist).", e);
         }
-                return user;
+        return user;
     }
 
 
@@ -91,4 +93,13 @@ public class Ad {
     public void setLink(String link) {
         this.link = link;
     }
+
+//    public Ad edit(Long id, String title, String link, String description) {
+//        Ad ad = DaoFactory.getAdsDao().getAdByID(id);
+//        ad.setTitle(title);
+//        ad.setLink(link);
+//        return ad;
+//    }
 }
+
+

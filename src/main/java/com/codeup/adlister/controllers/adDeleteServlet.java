@@ -31,6 +31,8 @@ public class adDeleteServlet extends HttpServlet {
         if (loggedInUser != null) {
             DaoFactory.getAdsDao().delete(ad);
             response.sendRedirect("/ads");
+        } else {
+            response.sendRedirect("/login");
         }
     }
 }
