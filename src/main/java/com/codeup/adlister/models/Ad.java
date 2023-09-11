@@ -1,39 +1,67 @@
 package com.codeup.adlister.models;
 
+import java.sql.*;
+
 public class Ad {
     private long id;
-    private long userId;
+    private User user;
     private String title;
     private String description;
     private String link;
 
-    public Ad(long id, long userId, String title, String description) {
-        this.id = id;
-        this.userId = userId;
-        this.title = title;
-        this.description = description;
-    }
+//    public Ad(long id, User user, String title, String description) {
+//        this.id = id;
+//        this.user =user;
+//        this.title = title;
+//        this.description = description;
+//    }
 
-    public Ad(long userId, String title, String description) {
-        this.userId = userId;
-        this.title = title;
-        this.description = description;
-    }
+//    public Ad(User user, String title, String description) {
+//        this.user =user;
+//        this.title = title;
+//        this.description = description;
+//    }
 
-    public Ad(long userId, String title, String description, String link) {
-        this.userId = userId;
+    public Ad(Long id, User user, String title, String description, String link) {
+        this.id = id ;
+        this.user =user;
         this.title = title;
         this.description = description;
         this.link = link;
     }
 
-    public Ad(long id, long userId, String title, String description, String link) {
-        this.id = id;
-        this.userId = userId;
+    public Ad(User user, String title, String description, String link) {
+        this.user =user;
         this.title = title;
         this.description = description;
         this.link = link;
     }
+
+
+    public User getUser(long userId) {
+        try {
+            Connection connection = null;
+            String insertQuery = "SELECT * FROM users WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, userId);
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                user = new User(
+                        user.getId(),
+                        user.getFirstName(),
+                        user.getLastName(),
+                        user.getUsername(),
+                        user.getEmail(),
+                        user.getPassword()
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error calling user (user may not exist).", e);
+        }
+                return user;
+    }
+
 
     public long getId() {
         return id;
@@ -43,12 +71,12 @@ public class Ad {
         this.id = id;
     }
 
-    public long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {
