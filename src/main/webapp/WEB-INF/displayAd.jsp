@@ -6,20 +6,15 @@
     <title>Display</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <h1>DisplayAd</h1>
 <div>
-<c:forEach var="ads" items="${ads}">
-    <c:forEach var="users" items="${users}">
-        <ul>
-        <ul> Username: ${users.username}</ul>
-    </c:forEach>
-    <li>project title: ${ads.title}</li>
-    <li>description: ${ads.description}</li>
-    <li>${ads.link}</li>
-    </ul>
-</c:forEach>
+<h1>Title</h1>
+    <h2>Link</h2>
+    <img src="">
+    <p>Description</p>
 </div>
-<jsp:include page="/WEB-INF/partials/footer.jsp" />
 <jsp:include page="/WEB-INF/partials/script.jsp" />
+<jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>

@@ -6,7 +6,7 @@
 </head>
 <body>
 <c:forEach var="ads" items="${ads}">
-<div class=" testing ${ads.id}">
+<div class=" advertisement ${ads.id}">
     <ul>
         <li>project title: ${ads.title}</li>
         <li>description: ${ads.description}</li>
