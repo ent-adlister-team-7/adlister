@@ -7,7 +7,6 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<h1>Display Ad</h1>
 <div>
     <h1>${ad.title}</h1>
     <h2><a href="${ad.link}" target="_blank">${ad.link}</a></h2>
@@ -19,6 +18,10 @@
             <form action="/delete" method="post">
                 <input type="hidden" name="adId" value="${ad.id}">
                 <input type="submit" value="Delete Ad">
+            </form>
+            <form action="/edit" method="get">
+                <input type="hidden" name="adId" value="${ad.id}">
+                <input type="submit" value="Edit Ad">
             </form>
         </c:when>
         <c:otherwise>
