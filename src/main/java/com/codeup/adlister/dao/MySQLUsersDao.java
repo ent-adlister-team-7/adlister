@@ -39,16 +39,32 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+    @Override
+    public User findUserByUsername(String username) {
+        try {
+            String insertQuery = "SELECT * FROM users WHERE username = ?";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                user = new User(
+                        rs.getLong(1),
+                        rs.getString(2),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5)
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error calling user (user may not exist).", e);
+        }
+        return user;
+    }
 
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password, firstName, lastName) VALUES (?, ?, ?, ?, ?)";
-        System.out.println("username in usersDAO is: " + user.getUsername());
-        System.out.println("email in usersDAO is: " + user.getEmail());
-        System.out.println("password in usersDAO is: " + user.getPassword());
-        System.out.println("first name in usersDAO is: " + user.getFirstName());
-        System.out.println("last name in usersDAO is: " + user.getLastName());
-
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());

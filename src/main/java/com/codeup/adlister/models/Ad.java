@@ -11,18 +11,6 @@ public class Ad {
     private String description;
     private String link;
 
-//    public Ad(long id, User user, String title, String description) {
-//        this.id = id;
-//        this.user =user;
-//        this.title = title;
-//        this.description = description;
-//    }
-
-//    public Ad(User user, String title, String description) {
-//        this.user =user;
-//        this.title = title;
-//        this.description = description;
-//    }
 
     public Ad(Long id, User user, String title, String description, String link) {
         this.id = id;
