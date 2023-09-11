@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -27,6 +28,10 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+
+
+
     @Override
     public List<Ad> all() {
         PreparedStatement stmt = null;
@@ -44,7 +49,7 @@ public class MySQLAdsDao implements Ads {
         try {
             String insertQuery = "INSERT INTO ads(user_id, title, link, description) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getUserId());
+            stmt.setLong(1, ad.getUser().getId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getLink());
             stmt.setString(4, ad.getDescription());
@@ -58,12 +63,23 @@ public class MySQLAdsDao implements Ads {
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
+        long adid = rs.getLong("id");
+        long id = rs.getLong("user_id");
+        String title = rs.getString("title");
+        String link = rs.getString("link");
+        String des = rs.getString("description");
+        User user = DaoFactory.getUsersDao().findById(id);
+        System.out.println("adid " + adid);
+        System.out.println("id " + id);
+        System.out.println("title" + title);
+        System.out.println("link" +link);
+        System.out.println("description" +des);
         return new Ad(
             rs.getLong("id"),
-            rs.getLong("user_id"),
+                user,
             rs.getString("title"),
-            rs.getString("link"),
-            rs.getString("description")
+            rs.getString("description"),
+            rs.getString("link")
         );
     }
 
