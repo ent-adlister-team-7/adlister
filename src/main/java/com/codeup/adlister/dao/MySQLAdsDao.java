@@ -1,23 +1,36 @@
 package com.codeup.adlister.dao;
 
+
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
+<<<<<<< HEAD
+=======
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+>>>>>>> main
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
 import com.codeup.adlister.util.Config;
+
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
+
 
     public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -38,6 +51,37 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    public Ad getAdByID(Long id) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE ID=?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+
+            if (rs.next()) {
+                User user = DaoFactory.getUsersDao().findById(id);
+
+
+                return new Ad(
+                        id,
+                        user,
+                        rs.getString("title"),
+                        rs.getString("description"),
+                        rs.getString("link")
+                );
+            } else {
+// Handle the case where no ad with the given ID was found
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad by ID: " + id, e);
+        }
+    }
+
+
+
+
     @Override
     public Long insert(Ad ad) {
         try {
@@ -56,19 +100,41 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    @Override
+    public void delete(Ad ad) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setLong(1, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad from the database.", e);
+        }
+    }
+
+
     private Ad extractAd(ResultSet rs) throws SQLException {
+        long adid = rs.getLong("id");
         long id = rs.getLong("user_id");
-        System.out.println(id);
+        String title = rs.getString("title");
+        String link = rs.getString("link");
+        String des = rs.getString("description");
         User user = DaoFactory.getUsersDao().findById(id);
+        System.out.println("adid " + adid);
+        System.out.println("id " + id);
+        System.out.println("title" + title);
+        System.out.println("link" + link);
+        System.out.println("description" + des);
         return new Ad(
-            rs.getLong("id"),
-//            rs.getLong("user_id"),
+                rs.getLong("id"),
                 user,
-            rs.getString("title"),
-            rs.getString("link"),
-            rs.getString("description")
+                rs.getString("title"),
+                rs.getString("description"),
+                rs.getString("link")
         );
     }
+
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
