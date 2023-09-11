@@ -40,6 +40,41 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+//    public String checkUsername(String username) throws SQLException {
+//        // Create a connection to the database
+//        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb", "username", "password");
+//        // Create a prepared statement to check if the username already exists
+//        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+//        // Set the parameter value
+//        preparedStatement.setString(1, username);
+//        // Execute the prepared statement
+//        ResultSet resultSet = preparedStatement.executeQuery();
+//        // Check the result of the query
+//        if (resultSet.next()) {
+//            // The username exists
+//            return "Username already exists";
+//        } else {
+//            // The username does not exist
+//            return "Username is available";
+//        }
+//    }
+
+//    public boolean isUsernameUnique(String username){
+//        boolean isUnique = false;
+//        try {
+//            String sql = "SELECT * FROM users WHERE username = ?";
+//            PreparedStatement statement = connection.prepareStatement(sql);
+//            statement.setString(1, username);
+//            ResultSet rs = statement.executeQuery();
+//            if (!rs.next()){
+//               return isUnique = false;
+//            }
+//        } catch (SQLException e){
+//            throw new RuntimeException("Error in username uniqe");
+//        }
+//
+//    }
+
 
     @Override
     public Long insert(User user) {
@@ -125,5 +160,18 @@ public class MySQLUsersDao implements Users {
                 rs.getString("password")
         );
     }
+
+    public void insertUsername(String username){
+        try {
+            String query = "INSERT INTO users (username) VALUES (?)";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, username);
+            statement.executeUpdate();
+        } catch (SQLException e){
+            throw new RuntimeException("Username not unique");
+        }
+
+        }
+
 
 }

@@ -1,6 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.dao.MySQLUsersDao;
 import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Password;
 import org.mindrot.jbcrypt.BCrypt;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.*;
+import java.util.List;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -20,6 +23,13 @@ public class RegisterServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
+        try {
+            if (checkUsername(username)){
+                response.sendRedirect("/register");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         String firstname = request.getParameter("first_name");
         String lastname = request.getParameter("last_name");
         String email = request.getParameter("email");
@@ -52,5 +62,24 @@ public class RegisterServlet extends HttpServlet {
 
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
+    }
+
+    public boolean checkUsername(String username) throws SQLException {
+        // Create a connection to the database
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/8080", "root", "codeup");
+        // Create a prepared statement to check if the username already exists
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+        // Set the parameter value
+        preparedStatement.setString(1, username);
+        // Execute the prepared statement
+        ResultSet resultSet = preparedStatement.executeQuery();
+        // Check the result of the query
+        if (resultSet.next()) {
+            // The username exists
+            return true;
+        } else {
+            // The username does not exist
+            return false;
+        }
     }
 }

@@ -3,10 +3,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +23,6 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
-
 
 
 
@@ -83,4 +77,29 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+ @Override
+    public List<Ad> findByTitle(String title){
+        String query = "SELECT * FROM ads WHERE title LIKE '%', ?, '%'";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, title);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e){
+            throw new RuntimeException("I'm sorry finding the add");
+        }
+    }
+
+
+//    public static boolean checkIfUserExist(String username){
+//        boolean usernameExist = false;
+//        try{
+//
+//
+//        } catch (Exception e){
+//            throw new RuntimeException("Could not complete");
+//        }
+//    }
+
 }
