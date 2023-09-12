@@ -2,7 +2,7 @@
     --main-gray: #888888;
     --main-red: #FF0000;
 }
-
+/*============================================= NavBar =====================*/
 .navbar {
     background-color: var(--main-gray);
     display: flex;
@@ -71,6 +71,8 @@
     margin: 4px;
     padding: 4px;
 }
+
+/*============================== Profile ====================================*/
 .singleAdCard {
     padding: 7px;
     margin: 7px;
@@ -96,6 +98,36 @@ ul {
 }
 
 
+/*============================= Register Page ==============================*/
+.reg-background {
+    background-color: var(--main-gray);
+    margin: 60px;
+    padding: 45px 0;
 
+}
 
+.reg-container {
+    background-color: black;
+    padding: 25px 120px;
+    width: 85%
+}
+
+.reg-label {
+    background-color: var(--main-gray);
+    padding: 3px;
+    margin: 0;
+}
+
+.title-bg {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: black;
+    margin: 0 55px;
+}
+
+.title {
+    font-size: 8rem;
+    color: white;
+}
 
