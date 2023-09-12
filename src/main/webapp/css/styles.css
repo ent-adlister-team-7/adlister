@@ -23,5 +23,14 @@
     margin: 7px;
     max-height: 25px;
 }
+.cardAd {
+    text-decoration-color: white;
+    background-color: black;
+    max-width: 25%;
+}
+.ultext{
+    color: white;
+    list-style: none;
+}
 
 
