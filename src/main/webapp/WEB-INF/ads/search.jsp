@@ -6,20 +6,23 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Search By Title</title>
 </head>
 <body>
 <div class="container">
-    <h1>Create a new Ad</h1>
-    <form action="/search" method="post">
-        <div class="form-group">
-            <label for="search">Title</label>
-            <input id="search" name="search" class="form-control" type="text">
+    <c:forEach var="result" items="${results}">
+        <div class="advertisement card cardAd" data-id="${result.id}">
+            <ul class="ultext">
+                <li>Project Title: ${result.title}</li>
+                <li>Description: ${result.description}</li>
+                <li>${result.link}</li>
+                <a href="/displayAd?id=${result.id}">See Details</a>
+            </ul>
         </div>
-        <input type="submit" value="search" class="btn btn-block btn-primary">
-    </form>
+    </c:forEach>
 </div>
 </body>
 </html>
