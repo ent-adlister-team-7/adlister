@@ -15,6 +15,18 @@
             <li><h2>${sessionScope.user.firstName}</h2> <h2>${sessionScope.user.lastName}</h2></li>
             <li>${sessionScope.user.email}</li>
         </ul>
+        <c:if test="${not empty sessionScope.user}">
+            <c:choose>
+                <c:when test="${sessionScope.user.id == user.id}">
+                    <form action="/editUser" method="get">
+                        <input type="hidden" name="userid" value="${user.id}">
+                        <input type="submit" value="Edit Profile">
+                    </form>
+                </c:when>
+            </c:choose>
+        </c:if>
+
+
     </div>
     <c:forEach var="ads" items="${ads}">
         <div class=" advertisement" data-id="${ads.id}">

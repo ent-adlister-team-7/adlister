@@ -1,6 +1,5 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 
 import java.util.List;
@@ -15,4 +14,6 @@ public interface Users {
     User findById(long id);
 
     User getAdByUserId(Long userId);
+
+    Long editUser(Long id, String firstname, String lastname, String username, String email);
 }

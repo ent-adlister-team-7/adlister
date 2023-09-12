@@ -39,6 +39,7 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+
     @Override
     public User findUserByUsername(String username) {
         try {
@@ -104,23 +105,45 @@ public class MySQLUsersDao implements Users {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 user = new User(
-                        rs.getLong(1),
-                        rs.getString(2),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5)
+                        rs.getLong("id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("password")
                 );
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error calling user (user may not exist).", e);
         }
+        System.out.println(user);
         return user;
     }
 
     @Override
     public User getAdByUserId(Long userId) {
         return null;
+    }
+
+    @Override
+    public Long editUser(Long id, String firstname, String lastname, String username, String email) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE users SET firstname = ?, lastname = ?, username = ?, email = ? WHERE id = ?");
+            stmt.setString(1, firstname);
+            stmt.setString(2, lastname);
+            stmt.setString(3, username);
+            stmt.setString(4, email);
+            stmt.setLong(5, id);
+            int rowsUpdated = stmt.executeUpdate();
+            if (rowsUpdated == 0) {
+                throw new RuntimeException("Failed to update user with adID: " + id);
+            }
+            return id;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving user by adID: " + id, e);
+        }
+
+
     }
 
 
@@ -145,7 +168,6 @@ public class MySQLUsersDao implements Users {
                 rs.getString("password")
         );
     }
-
 
 
 }
