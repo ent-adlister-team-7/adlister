@@ -5,6 +5,14 @@ import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
+
+
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,10 +52,10 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    @Override
-    public Ad getAdByUserID(Long id) {
+
+    public Ad getAdByID(Long id) {
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE user_id=?");
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ads WHERE ID=?");
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
 
@@ -72,6 +80,25 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Long editAd(Long id, String title, String link, String description) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE ads SET title = ?, link = ?, description = ? WHERE id = ?");
+            stmt.setString(1, title);
+            stmt.setString(2, link);
+            stmt.setString(3, description);
+            stmt.setLong(4, id);
+            int rowsUpdated = stmt.executeUpdate();
+
+            if (rowsUpdated == 0) {
+                throw new RuntimeException("Failed to update ad with ID: " + id);
+            }
+            return id;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving ad by ID: " + id, e);
+        }
+
+    }
 
 
     @Override
@@ -103,16 +130,6 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting ad from the database.", e);
         }
-    }
-
-    @Override
-    public Ad getAdByID(Long id) {
-        return null;
-    }
-
-    @Override
-    public Ad getAdByUserId(Long id) {
-        return null;
     }
 
 
@@ -148,7 +165,7 @@ public class MySQLAdsDao implements Ads {
 
  @Override
     public List<Ad> findByTitle(String title){
-        String query = "SELECT * FROM ads WHERE title LIKE '%' , ?, '%'";
+        String query = "SELECT * FROM ads WHERE title LIKE '%', ?, '%'";
         try{
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, title);

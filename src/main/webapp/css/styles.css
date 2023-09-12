@@ -1,0 +1,22 @@
+.navbar{
+    background-color: darkgrey;
+}
+
+.full-nav {
+    background-color: black;
+    display: flex;
+    padding: 10px;
+    margin: 15px 15px 15px 5px;
+}
+.logout {
+    background-color: black;
+    margin: 4px;
+    padding: 4px;
+}
+.login{
+    background-color: darkred;
+    margin: 4px;
+    padding: 4px;
+}
+
+
