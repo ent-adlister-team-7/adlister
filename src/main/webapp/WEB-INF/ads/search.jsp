@@ -9,10 +9,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/partials/head.jsp"/>
     <title>Search By Title</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
+    <h1>Projects</h1>
     <c:forEach var="result" items="${results}">
         <div class="advertisement card cardAd" data-id="${result.id}">
             <ul class="ultext">
@@ -24,5 +27,6 @@
         </div>
     </c:forEach>
 </div>
+<jsp:include page="/WEB-INF/partials/script.jsp"/>
 </body>
 </html>
