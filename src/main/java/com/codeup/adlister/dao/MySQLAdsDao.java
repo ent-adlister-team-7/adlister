@@ -86,6 +86,29 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public User getUserByAdsId(long adId){
+        PreparedStatement stmt = null;
+        try {
+            Ad ad = DaoFactory.getAdsDao().getAdByID(adId);
+            stmt = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
+            stmt.setLong(1, ad.getUser().getId());
+            ResultSet rs = stmt.executeQuery();
+            User user = new User(
+                    rs.getLong(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getString(5),
+                    rs.getString(6)
+            );
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving user.", e);
+        }
+    }
+
+
+
 
     @Override
     public Long editAd(Long id, String title, String link, String description) {

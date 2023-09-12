@@ -88,6 +88,13 @@ public class User {
         return lastName;
     }
 
-
+    public String toString() {
+        return "id: " + this.id +
+                "firstName: " + this.firstName +
+                "lastName: " + this.lastName +
+                "username: " + this.username +
+                "email: " + this.email +
+                "password: " + this.password;
+    }
 
 }
