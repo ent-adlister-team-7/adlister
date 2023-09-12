@@ -18,8 +18,10 @@
     margin: 4px;
     padding: 4px;
 }
-.profilepic{
-    max-height: ;
+.singleAdCard {
+    padding: 7px;
+    margin: 7px;
+    max-height: 25px;
 }
 
 

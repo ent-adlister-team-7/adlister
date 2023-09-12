@@ -7,7 +7,8 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div>
+<%--<div class="container">--%>
+    <div class="card singleAdCard">
     <h1>${ad.title}</h1>
     <h2><a href="${ad.link}" target="_blank">${ad.link}</a></h2>
     <%-- <img src="${ad.imageSource}">--%>
@@ -29,10 +30,9 @@
         </c:otherwise>
     </c:choose>
     </c:if>
+    </div>
 
-
-
-</div>
+<%--</div>--%>
 <jsp:include page="/WEB-INF/partials/script.jsp" />
 <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
