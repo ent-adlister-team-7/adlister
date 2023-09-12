@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
@@ -29,6 +31,19 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
+
+        for(String usernameCheck : DaoFactory.getUsersDao().allUsernames()){
+            System.out.println("username to be checked " + usernameCheck);
+            if(username.toLowerCase().equals(usernameCheck.toLowerCase())){
+                request.setAttribute("usernameTakenMessage", "Username is already taken. Please choose a different one.");
+                try {
+                    request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+                } catch (ServletException e) {
+                    throw new RuntimeException(e);
+                }
+                return;
+            }
+        }
         // validate input
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
@@ -41,6 +56,7 @@ public class RegisterServlet extends HttpServlet {
             response.sendRedirect("/register");
             return;
         }
+
 
 
         // hash the password

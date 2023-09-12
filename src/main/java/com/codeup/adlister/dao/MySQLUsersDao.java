@@ -146,6 +146,21 @@ public class MySQLUsersDao implements Users {
 
     }
 
+    @Override
+    public List<String> allUsernames() {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("select username from users");
+            ResultSet rs = stmt.executeQuery();
+            List<String> usernames = new ArrayList<>();
+            while (rs.next()){
+                usernames.add(rs.getString("username"));
+            }
+            return usernames;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving user by username", e);
+        }
+    }
+
 
     private List<User> createUsersFromResults(ResultSet rs) throws SQLException {
         List<User> user = new ArrayList<>();
