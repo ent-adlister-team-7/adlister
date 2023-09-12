@@ -8,11 +8,11 @@
 <jsp:include page="/WEB-INF/partials/head.jsp" />
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <c:forEach var="ads" items="${ads}">
-    <div class=" advertisement" data-id="${ads.id}">
-        <ul>
-            <li>project title: ${ads.title}</li>
-            <li>description: ${ads.description}</li>
-            <li>${ads.link}</li>
+    <div class="advertisement card cardAd" data-id="${ads.id}">
+        <ul class="ultext">
+            <li class="viewprofile">Project Title: ${ads.title}</li>
+            <li class="viewprofile">Description: ${ads.description}</li>
+            <li class="viewprofile">${ads.link}</li>
             <a href="/displayAd?id=${ads.id}">See Details</a>
         </ul>
     </div>
