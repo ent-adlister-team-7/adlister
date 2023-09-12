@@ -1,20 +1,62 @@
-.navbar{
-    background-color: darkgrey;
+:root {
+    --main-gray: #888888;
+    --main-red: #FF0000;
 }
 
-.full-nav {
-    background-color: black;
+.navbar {
+    background-color: var(--main-gray);
     display: flex;
-    padding: 10px;
-    margin: 15px 15px 15px 5px;
+    justify-content: space-between;
+    align-content: center;
+    padding-top: 10px;
+    height: 8vh;
+    width: 100%;
+}
+
+.byte-club>button {
+    display: flex;
+    background-color: black;
+    color: white;
+    text-decoration-color: white;
+    height: 5vh;
+    width: 175px;
+    align-content: center;
+    font-size: 2rem;
+    padding-top: 5px;
+}
+
+.search-bar {
+    display: flex;
+    height: 4vh;
+    width: 45vw;
+    align-content: center;
+
+
+}
+    input {
+        margin-top: 4px;
+    }
+
+.nav-btns {
+    display: flex;
 }
 .logout {
+    display: flex;
+    justify-content: center;
     background-color: black;
+    color: white;
+    height: 4vh;
+    width: 8vw;
     margin: 4px;
     padding: 4px;
+
 }
 .login{
-    background-color: darkred;
+    display: flex;
+    justify-content: center;
+    background-color: var(--main-red);
+    height: 4vh;
+    width: 8vw;
     margin: 4px;
     padding: 4px;
 }
@@ -23,5 +65,4 @@
     margin: 7px;
     max-height: 25px;
 }
-
 

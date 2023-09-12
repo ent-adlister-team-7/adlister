@@ -1,15 +1,18 @@
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand full-nav" href="/ads">THE BYTE CLUB</a>
+            <div class="navbar container">
+            <div class="brand-container">
+                <div class="byte-club">
+                    <button onclick="window.location.href='/ads'">THE BYTE CLUB</button>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="search-btn login" type="submit">Search</button>
+            </div>
+            <div class="nav-btns">
+                    <button onclick="window.location.href='/login'" class="login">LOGIN</button>
+                    <button onclick="window.location.href='/logout'" class=" logout ">LOGOUT</button>
+                <button onclick="window.location.href='/register'" class=" logout ">SIGNUP</button>
+            </div>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <br>
-            <li class="btn-sm login"><a href="/login">Login</a></li>
-            <li class="btn-sm logout"><a href="/logout">Logout</a></li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
+
