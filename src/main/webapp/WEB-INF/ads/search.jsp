@@ -12,14 +12,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Create a new Ad</h1>
-    <form action="/search" method="post">
-        <div class="form-group">
-            <label for="search">Title</label>
-            <input id="search" name="search" class="form-control" type="text">
-        </div>
-        <input type="submit" value="search" class="btn btn-block btn-primary">
-    </form>
+
 </div>
 </body>
 </html>

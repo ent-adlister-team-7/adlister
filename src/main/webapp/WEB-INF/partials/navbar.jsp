@@ -6,7 +6,7 @@
                 </div>
             </div>
             <div class="search-bar">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="search-ad">
                 <button class="search-btn login" type="submit">Search</button>
             </div>
             <div class="nav-btns">
