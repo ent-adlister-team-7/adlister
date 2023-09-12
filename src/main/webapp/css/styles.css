@@ -13,6 +13,16 @@
     width: 100%;
 }
 
+.user-icon {
+    position: absolute;
+    top: 3%;
+
+
+}
+    .user-icon:hover {
+        cursor: pointer;
+    }
+
 .byte-club>button {
     display: flex;
     background-color: black;
@@ -51,6 +61,7 @@
     padding: 4px;
 
 }
+
 .login{
     display: flex;
     justify-content: center;
