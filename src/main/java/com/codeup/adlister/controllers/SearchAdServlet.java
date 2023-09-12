@@ -18,18 +18,19 @@ import java.util.List;
 public class SearchAdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            String searchResult = req.getParameter("search");
-            List<Ad> results = DaoFactory.getAdsDao().findByTitle(searchResult);
-            req.setAttribute("result", results);
-            req.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(req, resp);
+//            String searchResult = req.getParameter("search");
+//            List<Ad> results = DaoFactory.getAdsDao().findByTitle(searchResult);
+//            req.setAttribute("result", results);
+//            req.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(req, resp);
     }
 
-//    @Override
-//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String input = req.getParameter("search");
-//        DaoFactory.getAdsDao().findByTitle(input);
-//        resp.sendRedirect("/search.jsp");
-//
-//
-//    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String searchResult = req.getParameter("search");
+        List<Ad> results = DaoFactory.getAdsDao().findByTitle(searchResult);
+        req.setAttribute("results", results);
+        req.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(req, resp);
+
+
+    }
 }
