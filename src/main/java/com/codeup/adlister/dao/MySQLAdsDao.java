@@ -94,12 +94,12 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(1, ad.getUser().getId());
             ResultSet rs = stmt.executeQuery();
             User user = new User(
-                    rs.getLong(1),
-                    rs.getString(2),
-                    rs.getString(3),
-                    rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6)
+                    rs.getLong("id"),
+                    rs.getString("firstname"),
+                    rs.getString("lastname"),
+                    rs.getString("username"),
+                    rs.getString("email"),
+                    rs.getString("password")
             );
             return user;
         } catch (SQLException e) {
