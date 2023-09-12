@@ -23,7 +23,6 @@ public class EditAdServlet extends HttpServlet {
         Long idL = Long.parseLong(id);
         System.out.println("edit long id " + idL);
         req.setAttribute("ad", DaoFactory.getAdsDao().getAdByID(idL));
-        req.setAttribute("user", DaoFactory.getAdsDao().getUserByAdsId(idL));
         req.getRequestDispatcher("/WEB-INF/ads/editAd.jsp").forward(req, resp);
     }
 
