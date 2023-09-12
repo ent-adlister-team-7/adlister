@@ -118,6 +118,11 @@ public class MySQLUsersDao implements Users {
         return user;
     }
 
+    @Override
+    public User getAdByUserId(Long userId) {
+        return null;
+    }
+
 
     private List<User> createUsersFromResults(ResultSet rs) throws SQLException {
         List<User> user = new ArrayList<>();

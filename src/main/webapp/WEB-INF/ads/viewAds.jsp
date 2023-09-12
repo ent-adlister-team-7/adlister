@@ -5,6 +5,7 @@
     <title>AD Details</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/head.jsp" />
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <c:forEach var="ads" items="${ads}">
     <div class=" advertisement" data-id="${ads.id}">

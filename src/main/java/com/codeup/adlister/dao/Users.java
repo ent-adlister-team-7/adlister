@@ -13,4 +13,6 @@ public interface Users {
     List<User> all();
 
     User findById(long id);
+
+    User getAdByUserId(Long userId);
 }

@@ -8,7 +8,6 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<%--<c: var="user" items="${user}">--%>
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <ul>
@@ -17,7 +16,16 @@
             <li>${sessionScope.user.email}</li>
         </ul>
     </div>
-<%--</c:>--%>
+    <c:forEach var="ads" items="${ads}">
+        <div class=" advertisement" data-id="${ads.id}">
+            <ul>
+                <li>project title: ${ads.title}</li>
+                <li>description: ${ads.description}</li>
+                <li>${ads.link}</li>
+                <a href="/displayAd?id=${ads.id}">See Details</a>
+            </ul>
+        </div>
+    </c:forEach>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>
