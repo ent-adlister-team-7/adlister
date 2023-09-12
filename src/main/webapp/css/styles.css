@@ -90,6 +90,9 @@ ul {
     list-style: none;
     max-height: 100px;
 }
+.cover-photo{
+    max-width: 99%;
+}
 
 
 

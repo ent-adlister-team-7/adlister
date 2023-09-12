@@ -9,7 +9,8 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+        <img class="cover-photo" src="img/byteclub.jpeg">
+        <h1>Welcome to the Byte Club!</h1>
     </div>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
