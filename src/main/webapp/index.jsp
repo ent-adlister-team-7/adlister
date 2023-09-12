@@ -8,12 +8,11 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-        <h1>Welcome to the Byte Club!</h1>
-        <img class="cover-photo" src="img/Byte%20club.jpg">
+    <div class="photo-cover">
+    <div class="container hero-page">
+        <h1 class="index-content">Welcome to the</h1>
     </div>
-
-
+    </div>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>

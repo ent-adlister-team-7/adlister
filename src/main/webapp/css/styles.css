@@ -92,9 +92,19 @@ ul {
     list-style: none;
     max-height: 100px;
 }
-.cover-photo{
-   background-image: image("/img/Byte club.jpg");
+.hero-page {
+    background-image: url("/img/Byte club.jpg");
     background-position: center;
+    color: white;
+    height: 100vh;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-content: center;
+}
+.photo-cover {
+    background-color: black;
+    margin: 50px;
 }
 
 
@@ -130,4 +140,5 @@ ul {
     font-size: 8rem;
     color: white;
 }
+
 
