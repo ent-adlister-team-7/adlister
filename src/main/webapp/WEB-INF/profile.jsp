@@ -8,6 +8,9 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <div class="container col-lg-3">
+        <img class="profilepic"src="../img/icons8-futurama-nibbler-240.png">
+    </div>
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <ul>
