@@ -54,7 +54,7 @@ public class MySQLAdsDao implements Ads {
 
 
             if (rs.next()) {
-                User user = DaoFactory.getUsersDao().findById(id);
+                User user = DaoFactory.getUsersDao().findById(rs.getLong("user_id"));
 
 
                 return new Ad(

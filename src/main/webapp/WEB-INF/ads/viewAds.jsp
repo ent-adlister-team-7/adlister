@@ -10,6 +10,7 @@
 <c:forEach var="ads" items="${ads}">
     <div class="advertisement card cardAd" data-id="${ads.id}">
         <ul class="ultext">
+            <li class="viewprofile">User: ${ads.user.username}</li>
             <li class="viewprofile">Project Title: ${ads.title}</li>
             <li class="viewprofile">Description: ${ads.description}</li>
             <li class="viewprofile">${ads.link}</li>
