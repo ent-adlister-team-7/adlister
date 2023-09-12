@@ -9,9 +9,11 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <img class="cover-photo" src="img/byteclub.jpeg">
         <h1>Welcome to the Byte Club!</h1>
+        <img class="cover-photo" src="img/Byte%20club.jpg">
     </div>
+
+
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>

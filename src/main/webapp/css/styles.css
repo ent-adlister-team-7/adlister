@@ -91,7 +91,8 @@ ul {
     max-height: 100px;
 }
 .cover-photo{
-    max-width: 99%;
+   background-image: image("/img/Byte club.jpg");
+    background-position: center;
 }
 
 
