@@ -16,4 +16,6 @@ public interface Users {
     User getAdByUserId(Long userId);
 
     Long editUser(Long id, String firstname, String lastname, String username, String email);
+
+    List<String> allUsernames();
 }
