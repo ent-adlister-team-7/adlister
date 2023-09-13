@@ -7,24 +7,28 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-        <h1>Create a new Ad</h1>
+        <div class="title-bg">
+            <h1 class="title">Create a new Ad</h1>
+        </div>
+<div class="reg-background">
+    <div class="container reg-container">
         <form action="/ads/create" method="post">
             <div class="form-group">
-                <label for="title">Title</label>
+                <label class="reg-label" for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
+                <label  class="reg-label" for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
             <div class="form-group">
-                <label for="link">Link</label>
+                <label  class="reg-label" for="link">Link</label>
                 <textarea id="link" name="link" class="form-control" type="text"></textarea>
             </div>
-            <input type="submit" class="btn btn-block btn-primary">
+            <input type="submit" class="btn login">
         </form>
     </div>
+</div>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>
