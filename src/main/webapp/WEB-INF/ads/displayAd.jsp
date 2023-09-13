@@ -10,6 +10,7 @@
 <%--<div class="container">--%>
 <div class="card singleAdCard">
     <div class="card-content">
+        <h1><u>${ad.user.username}</u></h1>
         <h1>${ad.title}</h1>
         <h2>Link: <a href="http://${ad.link}" target="_blank">${ad.link}</a></h2>
         <%-- <img src="${ad.imageSource}">--%>
