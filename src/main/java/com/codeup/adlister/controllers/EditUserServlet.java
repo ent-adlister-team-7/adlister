@@ -36,6 +36,13 @@ public class EditUserServlet extends HttpServlet {
             String email = req.getParameter("email");
             String userId = req.getParameter("userid");
             long id = Long.parseLong(userId);
+            for (String usernames : DaoFactory.getUsersDao().allUsernames()){
+                System.out.println(usernames);
+                if (usernames.equalsIgnoreCase(username)){
+                    resp.sendRedirect("/");
+                    return;
+                }
+            }
             DaoFactory.getUsersDao().editUser(id, firstname, lastname, username, email);
             req.getSession().removeAttribute("user");
             req.getSession().setAttribute("user", DaoFactory.getUsersDao().findByUsername(username));
