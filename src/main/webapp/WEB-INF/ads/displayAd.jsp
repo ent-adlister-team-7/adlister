@@ -8,8 +8,8 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <%--<div class="container">--%>
-<div class="card cardAd">
-    <div class="card-content">
+<div class="jd-profile-container">
+    <div class="item">
         <h1>${ad.user.username}</h1>
         <p>${ad.title}</p>
         <p>Link: <a href="http://${ad.link}" target="_blank">${ad.link}</a></p>
@@ -17,11 +17,11 @@
         <c:if test="${not empty sessionScope.user}">
             <c:choose>
                 <c:when test="${ad.user.id == sessionScope.user.id}">
-                    <form action="/delete" method="post">
+                    <form class="display-ad-jd" action="/delete" method="post">
                         <input type="hidden" name="adId" value="${ad.id}">
                         <input type="submit" value="Delete Ad">
                     </form>
-                    <form action="/edit" method="get">
+                    <form class="display-ad-jd" action="/edit" method="get">
                         <input type="hidden" name="adId" value="${ad.id}">
                         <input type="submit" value="Edit Ad">
                     </form>
