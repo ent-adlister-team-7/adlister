@@ -8,13 +8,11 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <%--<div class="container">--%>
-<div class="card singleAdCard">
+<div class="card cardAd">
     <div class="card-content">
-        <h1><u>${ad.user.username}</u></h1>
-        <h1>${ad.title}</h1>
-        <h2>Link: <a href="http://${ad.link}" target="_blank">${ad.link}</a></h2>
-        <%-- <img src="${ad.imageSource}">--%>
-        <h5>Project Description</h5>
+        <h1>${ad.user.username}</h1>
+        <p>${ad.title}</p>
+        <p>Link: <a href="http://${ad.link}" target="_blank">${ad.link}</a></p>
         <p>${ad.description}</p>
         <c:if test="${not empty sessionScope.user}">
             <c:choose>
