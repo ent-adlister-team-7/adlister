@@ -140,5 +140,13 @@ ul {
     font-size: 8rem;
     color: white;
 }
+/*================================== Login Page =====================*/
 
+.login-title-bg {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: black;
+    margin: 0 400px;
+}
 
