@@ -165,5 +165,9 @@ ul {
     background-color: black;
     margin: 0 400px;
 }
-
+.advertisement {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
 
