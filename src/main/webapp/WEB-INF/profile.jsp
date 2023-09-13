@@ -34,13 +34,23 @@
 
 </div>
 <c:forEach var="ads" items="${ads}">
-    <div class=" advertisement" data-id="${ads.id}">
-        <ul>
-            <li>project title: ${ads.title}</li>
-            <li>description: ${ads.description}</li>
-            <li>${ads.link}</li>
-            <a href="/displayAd?id=${ads.id}">See Details</a>
-        </ul>
+<%--    <div class=" advertisement" data-id="${ads.id}">--%>
+<%--        <ul>--%>
+<%--            <li>project title: ${ads.title}</li>--%>
+<%--            <li>description: ${ads.description}</li>--%>
+<%--            <li>${ads.link}</li>--%>
+<%--            <a href="/displayAd?id=${ads.id}">See Details</a>--%>
+<%--        </ul>--%>
+<%--    </div>--%>
+    <div class="card cardAd" data-id="${ads.id}">
+<%--        <div class="card-body">--%>
+            <h5 class="card-title">${ads.title}</h5>
+            <h6 class="card-subtitle">${ads.user.username}</h6>
+            <p class="card-text">${ads.description}</p>
+            <a href="#">${ads.link}</a>
+            <br>
+            <a href="/displayAd?id=${ads.id}" class="card-link">See Details</a>
+<%--        </div>--%>
     </div>
 </c:forEach>
 <jsp:include page="/WEB-INF/partials/footer.jsp"/>
