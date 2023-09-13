@@ -25,7 +25,7 @@
                 <label  class="reg-label" for="link">Link</label>
                 <textarea id="link" name="link" class="form-control" type="text"></textarea>
             </div>
-            <input type="submit" class="btn login">
+            <input type="submit" class="btn comic-button">
         </form>
     </div>
 </div>
