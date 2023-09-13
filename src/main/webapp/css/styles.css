@@ -232,9 +232,12 @@ ul {
 
 .comic-button:hover {
     background-color: #fff;
-    color: #FF0000;
-    border: 2px solid #FF0000;
-    box-shadow: 5px 5px 0px #FF0000;
+
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    box-shadow: 5px 5px 0px #ff5252;
+}
+
 
 .advertisement {
     background-color: black;
@@ -246,4 +249,56 @@ ul {
     background-color: #fcf414;
     box-shadow: none;
     transform: translateY(4px);
+}
+
+/*===========================profile styling=======================*/
+.jd-profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.item{
+    background-color: black;
+    color: white;
+    text-align: center;
+    max-width: 25%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 45px;
+    overflow: hidden;
+    height: 500px;
+    width: 350px;
+}
+.display-ad-jd{
+    color:  var(--main-gray);
+}
+.profile-box-jd{
+    background: black;
+    display: flex;
+    align-items: center
+}
+.profile-pic-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.profile-box-jd h1 {
+    color: red;
+}
+.profile-box-jd ul {
+    color: white;
+}
+.profile-content h1,
+.profile-content ul,
+.profile-content form {
+    margin: 10px 0; /* Add spacing between elements */
+}
+.jd-white-border{
+    border: white 2px;
 }

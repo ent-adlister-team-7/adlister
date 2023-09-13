@@ -7,18 +7,18 @@
 <body>
 <jsp:include page="/WEB-INF/partials/head.jsp"/>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<c:forEach var="ads" items="${ads}">
-    <div class="card advertisement cardAd" data-id="${ads.id}">
-        <div class="card-body">
-            <h5 class="card-title">${ads.title}</h5>
-            <h6 class ="card-subtitle">${ads.user.username}</h6>
-            <p class="card-text">${ads.description}</p>
-            <a href="#">${ads.link}</a>
-            <br>
-            <a href="/displayAd?id=${ads.id}" class="card-link">See Details</a>
+<div class="jd-profile-container">
+    <c:forEach var="ads" items="${ads}">
+        <div class="item cardAd" data-id="${ads.id}">
+                <h5 class="card-title">${ads.title}</h5>
+                <h6 class="card-subtitle">${ads.user.username}</h6>
+                <p class="card-text">${ads.description}</p>
+                <a href="#">${ads.link}</a>
+                <br>
+                <a href="/displayAd?id=${ads.id}" class="card-link">See Details</a>
         </div>
-    </div>
-</c:forEach>
+    </c:forEach>
+</div>
 <jsp:include page="/WEB-INF/partials/footer.jsp"/>
 <jsp:include page="/WEB-INF/partials/script.jsp"/>
 <script src=""></script>
