@@ -273,3 +273,32 @@ ul {
 .display-ad-jd{
     color:  var(--main-gray);
 }
+.profile-box-jd{
+    background: black;
+    display: flex;
+    align-items: center
+}
+.profile-pic-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.profile-box-jd h1 {
+    color: red;
+}
+.profile-box-jd ul {
+    color: white;
+}
+.profile-content h1,
+.profile-content ul,
+.profile-content form {
+    margin: 10px 0; /* Add spacing between elements */
+}
+.jd-white-border{
+    border: white 2px;
+}
