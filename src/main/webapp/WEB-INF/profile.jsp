@@ -30,29 +30,15 @@
             </c:when>
         </c:choose>
     </c:if>
-
-
 </div>
 <br>
 <c:forEach var="ads" items="${ads}">
     <div class="advertisement cardAd" data-id="${ads.id}">
-        <ul>
-            <li>project title: ${ads.title}</li>
-            <li>description: ${ads.description}</li>
-            <li>${ads.link}</li>
+            <h1> ${ads.title}</h1>
+            <p> ${ads.description}</p>
+            <p>${ads.link}</p>
             <a href="/displayAd?id=${ads.id}">See Details</a>
-        </ul>
     </div>
-<%--    <div class="card cardAd" data-id="${ads.id}">--%>
-<%--&lt;%&ndash;        <div class="card-body">&ndash;%&gt;--%>
-<%--            <h5 class="card-title">${ads.title}</h5>--%>
-<%--            <h6 class="card-subtitle">${ads.user.username}</h6>--%>
-<%--            <p class="card-text">${ads.description}</p>--%>
-<%--            <a href="#">${ads.link}</a>--%>
-<%--            <br>--%>
-<%--            <a href="/displayAd?id=${ads.id}" class="card-link">See Details</a>--%>
-<%--&lt;%&ndash;        </div>&ndash;%&gt;--%>
-<%--    </div>--%>
 </c:forEach>
 <jsp:include page="/WEB-INF/partials/footer.jsp"/>
 </body>
