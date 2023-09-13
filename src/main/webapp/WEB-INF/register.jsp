@@ -44,7 +44,7 @@
             <label class="reg-label" for="confirm_password">CONFIRM PASSWORD</label>
             <input id="confirm_password" name="confirm_password" class="form-control" type="password">
         </div>
-        <input type="submit" class="btn login">
+        <input type="submit" class="btn login comic-button">
     </form>
 </div>
 </div>
