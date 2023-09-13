@@ -7,15 +7,15 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="container">
-    <h1>Projects</h1>
+<div class="jd-profile-container">
     <c:forEach var="result" items="${results}">
-        <div class="advertisement card cardAd" data-id="${result.id}">
-                <p>${result.title}</p>
-                <p>${result.description}</p>
-                <a herf="#">${result.link}</a>
+        <div class="item cardAd" data-id="${result.id}">
+            <p>${result.title}</p>
+            <p>${result.user.username}</p>
+            <p>${result.description}</p>
+            <a herf="#">${result.link}</a>
             <br>
-                <a href="/displayAd?id=${result.id}">See Details</a>
+            <a href="/displayAd?id=${result.id}">See Details</a>
         </div>
     </c:forEach>
 </div>

@@ -232,9 +232,16 @@ ul {
 
 .comic-button:hover {
     background-color: #fff;
+
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    box-shadow: 5px 5px 0px #ff5252;
+}
+
     color: #FF0000;
     border: 2px solid #FF0000;
     box-shadow: 5px 5px 0px #FF0000;
+
 
 
 .advertisement {
@@ -247,4 +254,24 @@ ul {
     background-color: #fcf414;
     box-shadow: none;
     transform: translateY(4px);
+}
+
+/*===========================profile styling=======================*/
+.jd-profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.item{
+    background-color: black;
+    color: white;
+    text-align: center;
+    max-width: 25%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 45px;
+    overflow: hidden;
+    height: 500px;
+    width: 350px;
 }

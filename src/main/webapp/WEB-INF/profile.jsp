@@ -32,14 +32,17 @@
     </c:if>
 </div>
 <br>
+<div class="jd-profile-container">
 <c:forEach var="ads" items="${ads}">
-    <div class="advertisement cardAd" data-id="${ads.id}">
-            <h1> ${ads.title}</h1>
-            <p> ${ads.description}</p>
-            <p>${ads.link}</p>
-            <a href="/displayAd?id=${ads.id}">See Details</a>
+    <div class="item cardAd" data-id="${ads.id}">
+        <h1> ${ads.title}</h1>
+        <p> ${ads.description}</p>
+        <p>${ads.link}</p>
+        <a href="/displayAd?id=${ads.id}">See Details</a>
     </div>
 </c:forEach>
+</div>
+
 <jsp:include page="/WEB-INF/partials/footer.jsp"/>
 </body>
 </html>
