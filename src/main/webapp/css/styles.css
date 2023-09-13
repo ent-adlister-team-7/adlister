@@ -233,9 +233,9 @@ ul {
 .comic-button:hover {
     background-color: #fff;
 
-    color: #ff5252;
-    border: 2px solid #ff5252;
-    box-shadow: 5px 5px 0px #ff5252;
+    color: #FF0000;
+    border: 2px solid #FF0000;
+    box-shadow: 5px 5px 0px #FF0000;
 }
 
 
