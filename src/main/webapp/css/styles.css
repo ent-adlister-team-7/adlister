@@ -72,7 +72,7 @@
     padding: 4px;
 }
 
-/*============================== Profile ====================================*/
+/*============================== INDEX ====================================*/
 .singleAdCard {
     padding: 7px;
     margin: 7px;
@@ -140,6 +140,14 @@ ul {
     font-size: 8rem;
     color: white;
 }
+.profilepic {
+    max-width: 50em;
+    margin: unset;
+}
+.profilecard {
+    margin: unset;
+
+}
 /*================================== Login Page =====================*/
 
 .login-title-bg {
@@ -149,4 +157,5 @@ ul {
     background-color: black;
     margin: 0 400px;
 }
+
 
