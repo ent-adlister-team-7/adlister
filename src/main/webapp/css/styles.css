@@ -2,6 +2,11 @@
     --main-gray: #888888;
     --main-red: #FF0000;
 }
+button {
+    white-space: nowrap; /* Prevent text from wrapping to a new line */
+    overflow: hidden; /* Hide any overflowing text */
+    text-overflow: ellipsis; /* Display an ellipsis (...) for text that overflows */
+}
 /*============================================= NavBar =====================*/
 .navbar {
     background-color: var(--main-gray);
@@ -29,15 +34,15 @@
     color: white;
     text-decoration-color: white;
     height: 5vh;
-    width: 175px;
+    width: 195px;
     align-content: center;
     font-size: 2rem;
-    padding-top: 5px;
+    /*padding-top: 5px;*/
 }
 
 .search-bar {
     display: flex;
-    height: 4vh;
+    height: 7vh;
     width: 45vw;
     align-content: center;
 
@@ -49,27 +54,33 @@
 
 .nav-btns {
     display: flex;
+    align-content: center;
+    font-size: 10px;
+    padding-bottom:15px;
+    justify-content: space-evenly;
 }
 .logout {
     display: flex;
     justify-content: center;
+    align-content: center;
     background-color: black;
     color: white;
-    height: 4vh;
-    width: 8vw;
-    margin: 4px;
-    padding: 4px;
+    /*height: 4vh;*/
+    /*width: 8vw;*/
+    /*margin: 4px;*/
+    /*padding: 4px;*/
 
 }
 
 .login{
     display: flex;
     justify-content: center;
+    align-content: center;
     background-color: var(--main-red);
-    height: 4vh;
-    width: 8vw;
-    margin: 4px;
-    padding: 4px;
+    /*height: 4vh;*/
+    /*width: 8vw;*/
+    /*margin: 4px;*/
+    /*padding: 4px;*/
 }
 
 /*============================== INDEX ====================================*/
@@ -165,9 +176,63 @@ ul {
     background-color: black;
     margin: 0 400px;
 }
+
+
+/*===========================edit ad and edit user ==============================*/
+.jd-edit-container {
+    background-color: black;
+    border: var(--main-gray) 8px;
+}
+
+.jd-edit-row {
+
+}
+
+.jd-edit-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.jd-edit-h {
+    color: #FF0000;
+}
+
+.jd-edit-input-box {
+    color: grey;
+}
+
+/*===========================Cool button css ==============================*/
+.comic-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff5252;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+}
+
+.comic-button:hover {
+    background-color: #fff;
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    box-shadow: 5px 5px 0px #ff5252;
+=======
 .advertisement {
     background-color: black;
     color: white;
     text-align: center;
 }
 
+.comic-button:active {
+    background-color: #fcf414;
+    box-shadow: none;
+    transform: translateY(4px);
+}
