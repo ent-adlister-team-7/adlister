@@ -11,7 +11,7 @@
     <div class="card advertisement cardAd" data-id="${ads.id}">
         <div class="card-body">
             <h5 class="card-title">${ads.title}</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">${ads.user.username}</h6>
+            <h6 class ="card-subtitle">${ads.user.username}</h6>
             <p class="card-text">${ads.description}</p>
             <a href="#">${ads.link}</a>
             <br>
