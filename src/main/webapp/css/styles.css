@@ -177,6 +177,7 @@ ul {
     margin: 0 400px;
 }
 
+
 /*===========================edit ad and edit user ==============================*/
 .jd-edit-container {
     background-color: black;
@@ -223,6 +224,11 @@ ul {
     color: #ff5252;
     border: 2px solid #ff5252;
     box-shadow: 5px 5px 0px #ff5252;
+=======
+.advertisement {
+    background-color: black;
+    color: white;
+    text-align: center;
 }
 
 .comic-button:active {
